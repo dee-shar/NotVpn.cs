@@ -5,7 +5,6 @@ Mobile-API for [NotVPN](https://play.google.com/store/apps/details?id=com.notvpn
 ```cs
 using System;
 using NotVpnApi;
-using System.Threading.Tasks;
 
 namespace Application
 {
