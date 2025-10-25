@@ -21,6 +21,7 @@ namespace NotVpnApi
                 new MediaTypeWithQualityHeaderValue("application/json"));
             deviceId = GenerateDeviceId(16);
         }
+        
         private static string GenerateDeviceId(int length)
         {
             const string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
