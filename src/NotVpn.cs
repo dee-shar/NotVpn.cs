@@ -47,6 +47,7 @@ namespace NotVpnApi
             var response = await httpClient.PostAsync($"{apiUrl}/users/registration", content);
             return await response.Content.ReadAsStringAsync();
         }
+        
         public async Task<string> GetServers(string token)
         {
             var countries = "[\"DE\",\"CA\",\"FI\",\"US\",\"NL\",\"SG\",\"RU\",\"UA\",\"BY\",\"TR\",\"AU\",\"KZ\",\"ES\",\"PL\",\"FR\",\"SE\",\"CH\",\"EE\",\"NO\",\"BG\",\"RO\",\"DK\",\"CZ\",\"GB\"]";
