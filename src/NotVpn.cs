@@ -2,10 +2,7 @@ using System;
 using System.Text;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
-using System.Reflection.PortableExecutable;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NotVpnApi
 {
@@ -38,7 +35,6 @@ namespace NotVpnApi
             var content = new StringContent(
                 $"token={token}&v={appVersion}&os={operationSystem}&versionOs=28&deviceName=RMX3551&deviceName=RMX3551", Encoding.UTF8);
             var response = await httpClient.PostAsync($"{apiUrl}/users/autorisation", content);
-            response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync();
         }
 
@@ -48,7 +44,6 @@ namespace NotVpnApi
                 $"mail=false&language=ru&languageOriginal=ru&languageOriginalTeg=ru-RU&countryUser=ru&json={{\"full\":false,\"elements\":[\"instagram\",\"facebook\",\"twitter\",\"youtubeimage\"]}}&os={operationSystem}&v={appVersion}&litel=true&deviceId={deviceId}";
             var content = new StringContent(data, Encoding.UTF8, "application/x-www-form-urlencoded");
             var response = await httpClient.PostAsync($"{apiUrl}/users/registration", content);
-            response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync();
         }
         public async Task<string> GetServers(string token)
@@ -57,7 +52,6 @@ namespace NotVpnApi
             var data = $"token={token}&counrty_list={countries}&rate=true&v={appVersion}";
             var content = new StringContent(data, Encoding.UTF8, "application/x-www-form-urlencoded");
             var response = await httpClient.PostAsync($"{apiUrl}/ping/get_servers", content);
-            response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync();
         }
     }
