@@ -14,7 +14,7 @@ namespace Application
         static async Task Main()
         {
             var api = new NotVpn();
-            string account = await api.registerAccount();
+            string account = await api.Register();
             Console.WriteLine(account);
         }
     }
