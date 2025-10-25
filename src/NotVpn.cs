@@ -33,7 +33,7 @@ namespace NotVpnApi
             return new string(bytes.Select(b => characters[b % characters.Length]).ToArray());
         }
 
-        public async Task<string> login(string token)
+        public async Task<string> Login(string token)
         {
             var content = new StringContent(
                 $"token={token}&v={appVersion}&os={operationSystem}&versionOs=28&deviceName=RMX3551&deviceName=RMX3551", Encoding.UTF8);
@@ -42,7 +42,7 @@ namespace NotVpnApi
             return await response.Content.ReadAsStringAsync();
         }
 
-        public async Task<string> registerAccount()
+        public async Task<string> Register()
         {
             var data =
                 $"mail=false&language=ru&languageOriginal=ru&languageOriginalTeg=ru-RU&countryUser=ru&json={{\"full\":false,\"elements\":[\"instagram\",\"facebook\",\"twitter\",\"youtubeimage\"]}}&os={operationSystem}&v={appVersion}&litel=true&deviceId={deviceId}";
@@ -51,7 +51,7 @@ namespace NotVpnApi
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync();
         }
-        public async Task<string> getServers(string token)
+        public async Task<string> GetServers(string token)
         {
             var countries = "[\"DE\",\"CA\",\"FI\",\"US\",\"NL\",\"SG\",\"RU\",\"UA\",\"BY\",\"TR\",\"AU\",\"KZ\",\"ES\",\"PL\",\"FR\",\"SE\",\"CH\",\"EE\",\"NO\",\"BG\",\"RO\",\"DK\",\"CZ\",\"GB\"]";
             var data = $"token={token}&counrty_list={countries}&rate=true&v={appVersion}";
