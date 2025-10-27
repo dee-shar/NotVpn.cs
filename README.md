@@ -3,7 +3,6 @@ Mobile-API for [NotVPN](https://play.google.com/store/apps/details?id=com.notvpn
 
 ## Example
 ```cs
-using System;
 using NotVpnApi;
 
 namespace Application
